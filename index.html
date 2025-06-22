@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dtech Informática - Loja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Dtech Informática</h1>
+        <nav>
+            <a href="#loja">Loja</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </header>
+
+    <section id="loja">
+        <h2>Loja de Equipamentos e Peças</h2>
+        <div class="produtos">
+
+            <!-- Produto 1 -->
+            <div class="produto" data-nome="Mouse Gamer" data-preco="75">
+                <img src="https://oechsle.vteximg.com.br/arquivos/ids/4553144/image.jpg" alt="Mouse Gamer">
+                <h4>Mouse Gamer</h4>
+                <p>R$ 75,00</p>
+                <button onclick="adicionarCarrinho('Mouse Gamer', 75)">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="produto" data-nome="Teclado Mecânico" data-preco="150">
+                <img src="https://cdn.pixabay.com/photo/2015/12/09/17/12/keyboard-1085630_1280.jpg" alt="Teclado Mecânico">
+                <h4>Teclado Mecânico</h4>
+                <p>R$ 150,00</p>
+                <button onclick="adicionarCarrinho('Teclado Mecânico', 150)">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="produto" data-nome="Headset Gamer" data-preco="120">
+                <img src="https://cdn.pixabay.com/photo/2016/11/22/19/23/headphones-1851394_1280.jpg" alt="Headset Gamer">
+                <h4>Headset Gamer</h4>
+                <p>R$ 120,00</p>
+                <button onclick="adicionarCarrinho('Headset Gamer', 120)">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="produto" data-nome="Roteador Wi-Fi" data-preco="180">
+                <img src="https://cdn.pixabay.com/photo/2018/02/21/19/22/router-3178708_1280.jpg" alt="Roteador Wi-Fi">
+                <h4>Roteador Wi-Fi</h4>
+                <p>R$ 180,00</p>
+                <button onclick="adicionarCarrinho('Roteador Wi-Fi', 180)">Adicionar ao Carrinho</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
