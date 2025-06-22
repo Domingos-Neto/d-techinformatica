@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dtech Informática - Loja Virtual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Dtech Informática</h1>
+            <nav>
+                <a href="#loja">Loja</a>
+                <a href="carrinho.html">Carrinho</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="loja">
+            <h2>Loja de Equipamentos e Peças</h2>
+            <div class="grid-produtos">
+
+                <!-- Produto 1 -->
+                <div class="card-produto">
+                    <img src="https://oechsle.vteximg.com.br/arquivos/ids/4553144/image.jpg" alt="Mouse Gamer">
+                    <h3>Mouse Gamer</h3>
+                    <p class="preco">R$ 75,00</p>
+                    <button onclick="adicionarCarrinho('Mouse Gamer', 75)">Adicionar ao Carrinho</button>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="card-produto">
+                    <img src="https://cdn.pixabay.com/photo/2015/12/09/17/12/keyboard-1085630_1280.jpg" alt="Teclado Mecânico">
+                    <h3>Teclado Mecânico</h3>
+                    <p class="preco">R$ 150,00</p>
+                    <button onclick="adicionarCarrinho('Teclado Mecânico', 150)">Adicionar ao Carrinho</button>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="card-produto">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/22/19/23/headphones-1851394_1280.jpg" alt="Headset Gamer">
+                    <h3>Headset Gamer</h3>
+                    <p class="preco">R$ 120,00</p>
+                    <button onclick="adicionarCarrinho('Headset Gamer', 120)">Adicionar ao Carrinho</button>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="card-produto">
+                    <img src="https://cdn.pixabay.com/photo/2018/02/21/19/22/router-3178708_1280.jpg" alt="Roteador Wi-Fi">
+                    <h3>Roteador Wi-Fi</h3>
+                    <p class="preco">R$ 180,00</p>
+                    <button onclick="adicionarCarrinho('Roteador Wi-Fi', 180)">Adicionar ao Carrinho</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Dtech Informática. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
