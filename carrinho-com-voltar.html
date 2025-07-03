@@ -88,6 +88,7 @@
 <div class="finalizar">
 <button onclick="finalizarCompra()">Finalizar Compra</button>
 </div><div class="voltar" style="text-align: center; margin-top: 30px;"><a href="index.html" style="padding: 10px 25px; font-size: 1rem; background: #ccc; color: #003366; border-radius: 8px; text-decoration: none; font-weight: bold;">← Continuar Comprando</a></div>
+<button onclick="limparCarrinho()">Limpar Carrinho</button>
 <script>
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   const tbody = document.querySelector("#tabela-carrinho tbody");
@@ -112,6 +113,10 @@
     mensagem += `\nTotal: R$ ${total.toFixed(2)}\nForma de compra: ${forma}`;
     const link = "https://wa.me/5588999999999?text=" + encodeURIComponent(mensagem);
     window.open(link, "_blank");
+  }
+    function limparCarrinho() {
+            localStorage.removeItem('carrinho');
+            location.reload();
   }
 </script>
 </body>
