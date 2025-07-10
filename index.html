@@ -192,19 +192,26 @@
 </section>
 <section id="precos">
 <h2>Lista de Serviços e Preços</h2>
+
+<!-- Botão para gerar o orçamento (caso exista) -->
 <div style="text-align: right; margin-bottom: 10px;">
-<div <="" button="" style="text-align: right; margin-bottom: 10px;">
+  <button onclick="gerarOrcamento()" style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px;">🧾 Gerar Orçamento</button>
 </div>
+
+<!-- Área do orçamento gerado -->
 <section id="orcamento-gerado" style="display:none; padding:20px; background:#fff; margin-top:15px; border-radius:8px;">
   <div style="text-align:center; margin-bottom:20px;">
     <img src='https://i.postimg.cc/6qv2fmsf/nova-logo-aumentada.png' alt='Logo Dtech' style='height:100px;'/>
     <h2 style="color:#409FDA;">Orçamento de Serviços</h2>
+  </div>
 
   <div id="orcamento-conteudo"></div>
+
   <div style="text-align:center; margin-top:20px;">
     <button onclick="imprimirOrcamento()" style="padding: 10px 25px; background:#409FDA; color:white; border:none; border-radius:5px;">🖨️ Imprimir</button>
   </div>
 </section>
+
 <div class="tabs">
 <button class="tab-button active" onclick="showTab(event, 'computadores')"><i class="fas fa-desktop"></i>Computadores</button>
 <button class="tab-button" onclick="showTab(event, 'impressoras')"><i class="fas fa-print"></i>Impressoras</button>
@@ -692,11 +699,32 @@ function gerarOrcamento() {
 
 <script>
 function imprimirOrcamento() {
-  const conteudo = document.getElementById("orcamento-gerado").innerHTML;
+  const conteudo = document.getElementById("orcamento-conteudo").innerHTML;
+  if (!conteudo || conteudo.trim() === "") {
+    alert("⚠️ Gere o orçamento antes de imprimir.");
+    return;
+  }
+
   const janela = window.open('', '', 'width=800,height=600');
   janela.document.write('<html><head><title>Orçamento Dtech</title>');
   janela.document.write('<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">');
-  janela.document.write('<style>body{font-family:Montserrat,sans-serif;padding:20px;}table{width:100%;border-collapse:collapse;}th,td{border:1px solid #ccc;padding:8px;text-align:left;}th{background:#409FDA;color:#fff;} img{max-height:100px;}
+  janela.document.write(`
+    <style>
+      body { font-family: Montserrat, sans-serif; padding: 20px; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+      th { background: #409FDA; color: #fff; }
+    </style>
+  `);
+  janela.document.write('</head><body>');
+  janela.document.write(conteudo);
+  janela.document.write('</body></html>');
+  janela.document.close();
+  janela.focus();
+  janela.print();
+  janela.close();
+}
+
 .btn-loja {
   display: inline-block;
   width: 160px;
@@ -722,17 +750,6 @@ function imprimirOrcamento() {
 .btn-whatsapp { background: #25d366; }
 .btn-online { background: #28a745; }
 .btn-comprar { background: #409FDA; border: none; cursor: pointer; }
-
-</style>');
-  janela.document.write('</head><body>');
-  janela.document.write(conteudo);
-  janela.document.write('</body></html>');
-  janela.document.close();
-  janela.focus();
-  janela.print();
-  janela.close();
-}
-</script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const botoesComprar = document.querySelectorAll(".btn-comprar");
