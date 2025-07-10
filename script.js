@@ -138,22 +138,21 @@ function imprimirOrcamento() {
   janela.close();
 }
 </script>
-<script>
 document.addEventListener("DOMContentLoaded", function () {
-  const botoesComprar = document.querySelectorAll(".btn-comprar"); // ajuste conforme a classe dos botões
+  const botoesComprar = document.querySelectorAll(".btn-comprar");
 
   botoesComprar.forEach(botao => {
     botao.addEventListener("click", function () {
       const produtoElement = botao.closest(".produto");
 
-      const nome = produtoElement.querySelector(".produto-nome")?.innerText || "Produto sem nome";
-      const preco = produtoElement.querySelector(".produto-preco")?.innerText || "R$ 0,00";
-      const imagem = produtoElement.querySelector("img")?.src || "";
+      const nome = produtoElement.querySelector("h4")?.innerText || "Produto";
+      const precoTexto = produtoElement.querySelector("p")?.innerText || "R$ 0,00";
+
+      const precoNum = parseFloat(precoTexto.replace("R$", "").replace(",", "."));
 
       const item = {
         nome: nome,
-        preco: preco,
-        imagem: imagem,
+        preco: isNaN(precoNum) ? 0 : precoNum,
         quantidade: 1
       };
 
@@ -161,10 +160,10 @@ document.addEventListener("DOMContentLoaded", function () {
       carrinho.push(item);
       localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-      alert("Produto adicionado ao carrinho!");
+      alert("✅ Produto adicionado ao carrinho!");
     });
   });
 });
-</script>
+
 
 
