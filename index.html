@@ -733,4 +733,32 @@ function imprimirOrcamento() {
   janela.close();
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const botoesComprar = document.querySelectorAll(".btn-comprar");
+
+  botoesComprar.forEach(botao => {
+    botao.addEventListener("click", function () {
+      const produtoElement = botao.closest(".produto");
+
+      const nome = produtoElement.querySelector(".produto-nome")?.innerText || "Produto";
+      const precoTexto = produtoElement.querySelector(".produto-preco")?.innerText || "R$ 0,00";
+
+      const precoNum = parseFloat(precoTexto.replace("R$", "").replace(",", "."));
+
+      const item = {
+        nome: nome,
+        preco: isNaN(precoNum) ? 0 : precoNum,
+        quantidade: 1
+      };
+
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      carrinho.push(item);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+      alert("✅ Produto adicionado ao carrinho!");
+    });
+  });
+});
+</script>
 
